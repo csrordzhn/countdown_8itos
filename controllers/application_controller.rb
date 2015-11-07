@@ -1,7 +1,6 @@
 require 'sinatra'
-require_relative './helpers/info8itos_helper'
 
-class Info8itos < Sinatra::Base
+class ApplicationController < Sinatra::Base
 include Info8itosHelper
 
 root = lambda do
