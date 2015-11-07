@@ -12,7 +12,8 @@ countdown = lambda do
 end
 
 key_dates = lambda do
-  'Las fechas importantes para los 8itos van aca'
+  event = KeyDate.find_by_id(1)
+  "#{event.description}"
 end
 
 # routes

@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20151107075036) do
 
-  create_table "keydates", force: :cascade do |t|
+  create_table "key_dates", force: :cascade do |t|
     t.string   "description"
     t.integer  "year"
     t.integer  "month"
