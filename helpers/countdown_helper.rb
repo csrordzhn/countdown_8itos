@@ -3,7 +3,7 @@ require 'date'
 module CountDownHelper
 
 MSG1 = [
-  'Te extrano 8ita preciosa.',
+  'Te extraño, 8ita preciosa.',
   'Ud es lo mejor de mi vida.',
   'Eres todo lo que tengo y eres todo lo que quiero.',
   'Ud es eso que se encuentra tan solo una vez.',
