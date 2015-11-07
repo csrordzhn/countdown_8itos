@@ -1,6 +1,6 @@
 require 'date'
 
-module CountDownHelper
+module Info8itosHelper
 
 MSG1 = [
   'Te extraño, 8ita preciosa.',

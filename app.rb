@@ -1,9 +1,8 @@
 require 'sinatra'
-require_relative './helpers/countdown_helper'
+require_relative './helpers/info8itos_helper'
 
-class CountDown < Sinatra::Base
-include CountDownHelper
-
+class Info8itos < Sinatra::Base
+include Info8itosHelper
 
 root = lambda do
   "'Countdown, counting every minute you're away' - Dan Hartman"
