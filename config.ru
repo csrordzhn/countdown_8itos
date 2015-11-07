@@ -1,2 +1,2 @@
 require './app.rb'
-run CountDown
+run Info8itos
