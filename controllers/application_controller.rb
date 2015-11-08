@@ -1,7 +1,6 @@
 require 'sinatra'
-require_relative './helpers/info8itos_helper'
 
-class Info8itos < Sinatra::Base
+class ApplicationController < Sinatra::Base
 include Info8itosHelper
 
 root = lambda do
@@ -13,7 +12,8 @@ countdown = lambda do
 end
 
 key_dates = lambda do
-  'Las fechas importantes para los 8itos van aca'
+  event = KeyDate.find_by_id(1)
+  "#{event.description}"
 end
 
 # routes

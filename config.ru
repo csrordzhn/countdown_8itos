@@ -1,2 +1,2 @@
-require './app.rb'
-run Info8itos
+Dir.glob('./{models,helpers,controllers}/*.rb').each { |file| require file }
+run ApplicationController

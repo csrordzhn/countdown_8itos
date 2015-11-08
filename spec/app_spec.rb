@@ -1,11 +1,11 @@
+Dir.glob('./{models,helpers,controllers}/*.rb').each { |file| require file }
 require 'minitest/autorun'
 require 'rack/test'
-require_relative '../app'
 
 include Rack::Test::Methods
 
 def app
-  Info8itos
+  ApplicationController
 end
 
 describe 'Getting the root of the service' do
