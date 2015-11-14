@@ -1,5 +1,21 @@
 module InitialConfig
 
+  def load_movies
+
+  end
+
+  def load_dates
+    dates = [
+      [2011,5,6,'8itos comienzan noviazgo.'],
+      [2015,8,6,'8itos se comprometen en el restaurante El Corral.'],
+      [2015,11,7, '8ito ayuda a 8ita a preparar SQL.']
+    ]
+    dates.each do |event|
+      new_event = KeyDate.new(year: event[0], month: event[1], day: event[2], description: event[3])
+      new_event.save!
+    end
+  end
+
   def load_messages
     msg1 = [
       'Te extraño, 8ita preciosa.',
@@ -28,5 +44,6 @@ module InitialConfig
       new_message = Message.new(message: message, category: 'T-100')
       new_message.save!
     end
+
   end
 end

@@ -1,12 +1,4 @@
-Dir.glob('./{models,helpers,controllers}/*.rb').each { |file| require file }
-require 'minitest/autorun'
-require 'rack/test'
-
-include Rack::Test::Methods
-
-def app
-  ApplicationController
-end
+require_relative 'spec_helper'
 
 describe 'Getting the root of the service' do
   it 'should return ok' do
@@ -16,6 +8,12 @@ describe 'Getting the root of the service' do
 end
 
 describe 'Using the countdown feature' do
+
+   before do
+    Message.delete_all
+    load_messages
+   end
+
   it 'should return a json string' do
     get '/countdown'
     last_response.must_be :ok?
@@ -41,6 +39,11 @@ describe 'Using the countdown feature' do
 end
 
 describe 'Testing Key Dates Feature' do
+  before do
+    KeyDate.delete_all
+    load_dates
+  end
+
   it 'should return a list of the key dates' do
     get '/key_dates'
     last_response.status.must_equal 200
@@ -65,11 +68,6 @@ end
 
 
 describe 'Testing messages feature' do
-
-  #it 'should load messages from array into db' do
-
-  #end
-
   it 'should create a message in the database' do
     body = {
       message: 'mi pedacito de cielo, pienso en ti donde sea que voy',

@@ -6,5 +6,5 @@ development:
 
 test:
   adapter: sqlite3
-  database: db/dev.db
+  database: db/test.db
   show_exceptions: true

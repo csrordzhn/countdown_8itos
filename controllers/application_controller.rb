@@ -4,6 +4,7 @@ class ApplicationController < Sinatra::Base
 include InitialConfig
 include CountdownHelper
 include KeyDateHelper
+include MessageHelper
 
 configure do
   Hirb.enable
