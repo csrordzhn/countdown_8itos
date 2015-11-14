@@ -35,6 +35,9 @@ add_movie = lambda do
   "Add a movie to the queue list"
 end
 
+add_message = lambda do
+
+end
 
 # routes
 get '/', &root
@@ -46,4 +49,6 @@ post '/add_key_date', &add_key_date
 
 get '/movies', &movies
 post '/add_movie', &add_movie
+
+post 'add_message', &add_message
 end
