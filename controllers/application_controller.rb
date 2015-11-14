@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'hirb'
 class ApplicationController < Sinatra::Base
+include InitialConfig
 include CountdownHelper
 include KeyDateHelper
 
@@ -36,7 +37,7 @@ add_movie = lambda do
 end
 
 add_message = lambda do
-
+  create_message
 end
 
 # routes
@@ -47,8 +48,10 @@ get '/countdown', &countdown
 get '/key_dates', &key_dates
 post '/add_key_date', &add_key_date
 
+post '/add_message', &add_message
+
 get '/movies', &movies
 post '/add_movie', &add_movie
 
-post 'add_message', &add_message
+
 end
