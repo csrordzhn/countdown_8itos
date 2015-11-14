@@ -3,7 +3,7 @@ require 'hirb'
 class ApplicationController < Sinatra::Base
 include InitialConfig
 include CountdownHelper
-include KeyDateHelper
+include EventHelper
 include MessageHelper
 include MovieHelper
 
@@ -21,13 +21,13 @@ countdown = lambda do
   { days_left: days_left.to_i, message: message }.to_json
 end
 
-key_dates = lambda do
+events = lambda do
   content_type :json
-  read_key_dates
+  read_events
 end
 
-add_key_date = lambda do
-  create_key_date
+add_event = lambda do
+  create_event
 end
 
 add_message = lambda do
@@ -35,6 +35,7 @@ add_message = lambda do
 end
 
 movies = lambda do
+  content_type :json
   read_movies
 end
 
@@ -49,8 +50,8 @@ get '/', &root
 
 get '/countdown', &countdown
 
-get '/key_dates', &key_dates
-post '/add_key_date', &add_key_date
+get '/events', &events
+post '/add_event', &add_event
 
 post '/add_message', &add_message
 

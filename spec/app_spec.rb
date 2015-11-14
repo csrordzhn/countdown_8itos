@@ -38,14 +38,14 @@ describe 'Using the countdown feature' do
   end
 end
 
-describe 'Testing Key Dates Feature' do
+describe 'Testing Event Feature' do
   before do
-    KeyDate.delete_all
+    Event.delete_all
     load_dates
   end
 
   it 'should return a list of the key dates' do
-    get '/key_dates'
+    get '/events'
     last_response.status.must_equal 200
     last_response.body.wont_equal ''
   end
@@ -59,7 +59,7 @@ describe 'Testing Key Dates Feature' do
       desc: 'running some more tests'
     }
     headers = { 'Content-Type' => 'application/json' }
-    post '/add_key_date', body.to_json, headers
+    post '/add_event', body.to_json, headers
     last_response.status.must_equal 201
   end
 end

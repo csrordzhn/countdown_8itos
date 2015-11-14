@@ -10,14 +10,14 @@ def app
   ApplicationController
 end
 
-def load_dates
+def load_events
   dates = [
     [2011,5,6,'8itos comienzan noviazgo.'],
     [2015,8,6,'8itos se comprometen en el restaurante El Corral.'],
     [2015,11,7, '8ito ayuda a 8ita a preparar SQL.']
   ]
   dates.each do |event|
-    new_event = KeyDate.new(year: event[0], month: event[1], day: event[2], description: event[3])
+    new_event = Event.new(year: event[0], month: event[1], day: event[2], description: event[3])
     new_event.save!
   end
 end

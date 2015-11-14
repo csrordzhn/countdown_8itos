@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151114042703) do
+ActiveRecord::Schema.define(version: 20151114065455) do
 
-  create_table "key_dates", force: :cascade do |t|
+  create_table "events", force: :cascade do |t|
     t.string   "description"
     t.integer  "year"
     t.integer  "month"

@@ -1,6 +1,6 @@
-class CreateKeydates < ActiveRecord::Migration
+class CreateEvents < ActiveRecord::Migration
   def change
-    create_table :key_dates do |t|
+    create_table :events do |t|
       t.string :description
       t.integer :year
       t.integer :month
