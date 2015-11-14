@@ -5,6 +5,7 @@ include InitialConfig
 include CountdownHelper
 include KeyDateHelper
 include MessageHelper
+include MovieHelper
 
 configure do
   Hirb.enable

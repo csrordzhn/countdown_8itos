@@ -12,7 +12,7 @@ module MovieHelper
     title = req['title']
     viewed = req['viewed']
     comments = req['comments']
-    new_movie = Movie.new(title: year, viewed: month, comments: day)
+    new_movie = Movie.new(title: title, viewed: viewed, comments: comments)
     if new_movie.save!
       status 201
     else
