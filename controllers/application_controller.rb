@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'hirb'
 class ApplicationController < Sinatra::Base
-include Info8itosHelper
+include CountdownHelper
 include KeyDateHelper
 
 configure do
@@ -19,18 +19,19 @@ countdown = lambda do
 end
 
 key_dates = lambda do
-  view_key_dates
+  content_type :json
+  read_key_dates
 end
 
-post_key_dates = lambda do
-  add_key_date
+add_key_date = lambda do
+  create_key_date
 end
 
-show_movies = lambda do
+movies = lambda do
   "Showing list of movies"
 end
 
-post_movie = lambda do
+add_movie = lambda do
   "Add a movie to the queue list"
 end
 
@@ -41,8 +42,8 @@ get '/', &root
 get '/countdown', &countdown
 
 get '/key_dates', &key_dates
-post '/add_key_date', &post_key_dates
+post '/add_key_date', &add_key_date
 
-get '/movies', &show_movies
-post '/add_movie', &post_movie
+get '/movies', &movies
+post '/add_movie', &add_movie
 end
