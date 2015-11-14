@@ -41,7 +41,7 @@ end
 describe 'Testing Event Feature' do
   before do
     Event.delete_all
-    load_dates
+    load_events
   end
 
   it 'should return a list of the key dates' do

@@ -4,10 +4,10 @@ require 'json'
 module EventHelper
 
 def read_events
-  KeyDate.all.to_json
+  Event.all.to_json
 end
 
-def create_events
+def create_event
   req = JSON.parse(request.body.read)
   year = req['year']
   month = req['month']
