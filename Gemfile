@@ -8,6 +8,7 @@ gem 'http_codes'
 gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'tux'
+gem 'hirb'
 
 group :development do
   gem 'sqlite3'

@@ -19,6 +19,7 @@ GEM
     builder (3.2.2)
     daemons (1.2.3)
     eventmachine (1.0.8)
+    hirb (0.7.3)
     http_codes (0.1.0)
     i18n (0.7.0)
     json (1.8.3)
@@ -65,6 +66,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  hirb
   http_codes
   json
   minitest

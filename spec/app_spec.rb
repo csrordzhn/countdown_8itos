@@ -21,4 +21,27 @@ describe 'Using the countdown feature' do
     last_response.must_be :ok?
     last_response.body.must_match(/[0-9]/)
   end
+
+describe 'Testing Key Dates Feature' do
+  it 'should return a list of the key dates' do
+    get '/key_dates'
+    last_response.status.must_equal 200
+    last_response.body.wont_equal ''
+  end
+
+  it 'should add a new event to the db' do
+    today = Date.today
+    body = {
+      year: today.year,
+      month: today.month,
+      day: today.day,
+      desc: 'running some tests'
+    }
+
+    headers = { 'Content-Type' => 'application/json' }
+
+    post '/add_key_date', body.to_json, headers
+    last_response.status.must_equal 201
+  end
+end
 end
