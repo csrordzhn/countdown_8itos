@@ -29,17 +29,19 @@ add_key_date = lambda do
   create_key_date
 end
 
-movies = lambda do
-  "Showing list of movies"
-end
-
-add_movie = lambda do
-  "Add a movie to the queue list"
-end
-
 add_message = lambda do
   create_message
 end
+
+movies = lambda do
+  read_movies
+end
+
+add_movie = lambda do
+  create_movie
+end
+
+
 
 # routes
 get '/', &root

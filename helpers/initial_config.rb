@@ -1,7 +1,16 @@
 module InitialConfig
 
   def load_movies
+    movies = [
+      ['Alien Marathon','N','Added because 8ito is a fan of Alien series'],
+      ['Pixar Marathon','N','Watch Nemo, Incredibles, Up, Wall*E, Inside Out, Toy Story, Ratatouille'],
+      ['Godfather','N','8ita has not watched these great movies']
+    ]
 
+    movies.each do |movie|
+      new_movie = Movie.new(title: movie[0], viewed: movie[1], comments: movie[2])
+      new_movie.save!
+    end
   end
 
   def load_dates

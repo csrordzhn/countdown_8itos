@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20151114042703) do
 
   create_table "movies", force: :cascade do |t|
     t.string   "title"
-    t.binary   "viewed"
+    t.string   "viewed"
     t.string   "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

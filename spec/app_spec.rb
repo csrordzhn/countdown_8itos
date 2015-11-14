@@ -58,9 +58,7 @@ describe 'Testing Key Dates Feature' do
       day: today.day,
       desc: 'running some more tests'
     }
-
     headers = { 'Content-Type' => 'application/json' }
-
     post '/add_key_date', body.to_json, headers
     last_response.status.must_equal 201
   end
@@ -73,12 +71,33 @@ describe 'Testing messages feature' do
       message: 'mi pedacito de cielo, pienso en ti donde sea que voy',
       cat: 'General',
     }
-
     headers = { 'Content-Type' => 'application/json' }
-
     post '/add_message', body.to_json, headers
     last_response.status.must_equal 201
   end
+end
 
+describe 'Using Movie features' do
+  before do
+    Movie.delete_all
+    load_movies
+  end
 
+  it 'should return a list of movie queue' do
+    get '/movies'
+    last_response.status.must_equal 200
+    last_response.body.wont_equal ''
+  end
+
+  it 'should add a new movie to the db' do
+
+    body = {
+      title: 'Fast and Furious Marathon',
+      viewed: 'N',
+      comments: 'Added to list because 8ita likes Vin Diesel',
+    }
+    headers = { 'Content-Type' => 'application/json' }
+    post '/add_movie', body.to_json, headers
+    last_response.status.must_equal 201
+  end
 end
