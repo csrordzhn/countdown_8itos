@@ -19,7 +19,7 @@ describe 'Using the countdown feature' do
   it 'should return a string with a message containing the number of days' do
     get '/countdown'
     last_response.must_be :ok?
-    last_response.body.must_match(/[0-9]/)
+    last_response.headers['Content-Type'].must_equal 'application/json'
   end
 
 describe 'Testing Key Dates Feature' do
@@ -35,7 +35,7 @@ describe 'Testing Key Dates Feature' do
       year: today.year,
       month: today.month,
       day: today.day,
-      desc: 'running some tests'
+      desc: 'running some more tests'
     }
 
     headers = { 'Content-Type' => 'application/json' }

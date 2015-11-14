@@ -13,16 +13,17 @@ root = lambda do
 end
 
 countdown = lambda do
+  content_type :json
   # "Faltan #{days_left.to_i} dias para volverte a ver. #{message}"
   { days_left: days_left.to_i, message: message }.to_json
 end
 
-show_key_dates = lambda do
-  key_dates_list
+key_dates = lambda do
+  view_key_dates
 end
 
 post_key_dates = lambda do
-  add_date
+  add_key_date
 end
 
 show_movies = lambda do
@@ -39,7 +40,7 @@ get '/', &root
 
 get '/countdown', &countdown
 
-get '/key_dates', &show_key_dates
+get '/key_dates', &key_dates
 post '/add_key_date', &post_key_dates
 
 get '/movies', &show_movies

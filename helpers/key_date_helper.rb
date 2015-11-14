@@ -3,11 +3,11 @@ require 'json'
 
 module KeyDateHelper
 
-def key_dates_list
+def view_key_dates
   KeyDate.all.to_json
 end
 
-def add_date
+def add_key_date
   req = JSON.parse(request.body.read)
   year = req['year']
   month = req['month']
