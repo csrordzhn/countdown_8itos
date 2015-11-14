@@ -9,6 +9,19 @@ include MovieHelper
 
 configure do
   Hirb.enable
+  set :api_ver, 'api/v1'
+end
+
+configure :development, :test do
+  set :api_server, 'http://localhost:3000'
+end
+
+configure :production do
+  set :api_server, 'http://countdown8itos.herokuapp.com'
+end
+
+configure :development, :production do
+  enable :logging
 end
 
 root = lambda do
